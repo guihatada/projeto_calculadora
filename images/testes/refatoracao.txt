@@ -1,0 +1,18 @@
+Resultado = 5
+[APROVADO] Soma | Entrada: 2 + 3 | Esperado: 5 | Obtido: 5
+Resultado = 6
+[APROVADO] Subtracao | Entrada: 10 - 4 | Esperado: 6 | Obtido: 6
+Resultado = 15
+[APROVADO] Multiplicacao | Entrada: 3 * 5 | Esperado: 15 | Obtido: 15
+Resultado = 4
+[APROVADO] Divisao | Entrada: 8 / 2 | Esperado: 4 | Obtido: 4
+Erro: divisao por zero, operacao irregular
+Resultado = 0
+[APROVADO] Divisao por zero | Entrada: 8 / 0 | Esperado: 0 | Obtido: 0
+Operacao invalida
+Resultado = 0
+[APROVADO] Operacao invalida | Entrada: 5 x 5 | Esperado: 0 | Obtido: 0
+[APROVADO] Metodo calcular | Entrada: 7 + 3 | Esperado: 10 | Obtido: 10
+[APROVADO] Excecao divisao por zero | Entrada: 8 / 0 | Esperado: IllegalArgumentException | Obtido: IllegalArgumentException
+[APROVADO] Excecao operador invalido | Entrada: 5 x 5 | Esperado: IllegalArgumentException | Obtido: IllegalArgumentException
+RESUMO: 9 APROVADOS | 0 REPROVADOS

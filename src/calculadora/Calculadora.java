@@ -1,46 +1,104 @@
 package calculadora;
 
 /**
- * Implementação inicial da calculadora FinançApp, conforme slide 41 da aula.
- * A versão inicial utiliza if/else e retorna zero em operações inválidas.
+ * Operações matemáticas inteiras para o projeto FinançApp.
+ * Versão refatorada a partir do exemplo dos slides 41 e 46.
+ * Contém métodos independentes e delega a seleção ao método calcular.
  *
  * @author Seu Nome
- * @version 1.0
+ * @version 2.0
  */
 public class Calculadora {
 
-    /** Resultado da última operação, como apresentado no exemplo da aula. */
+    /** Guarda o último resultado devolvido pela interface de compatibilidade calc. */
     public int r = 0;
 
     /**
-     * Realiza soma, subtração, multiplicação ou divisão de inteiros.
-     * Imprime mensagens para divisão por zero e operador inválido, retornando zero.
+     * Soma dois inteiros.
+     * @param a primeiro operando
+     * @param b segundo operando
+     * @return soma de a e b
+     */
+    public int somar(int a, int b) {
+        return a + b;
+    }
+
+    /**
+     * Subtrai dois inteiros.
+     * @param a primeiro operando
+     * @param b segundo operando
+     * @return diferença entre a e b
+     */
+    public int subtrair(int a, int b) {
+        return a - b;
+    }
+
+    /**
+     * Multiplica dois inteiros.
+     * @param a primeiro operando
+     * @param b segundo operando
+     * @return produto de a e b
+     */
+    public int multiplicar(int a, int b) {
+        return a * b;
+    }
+
+    /**
+     * Divide dois inteiros com validação prévia do divisor.
+     * @param a dividendo
+     * @param b divisor
+     * @return quociente inteiro de a por b
+     * @throws IllegalArgumentException se b for zero
+     */
+    public int dividir(int a, int b) {
+        if (b == 0) {
+            throw new IllegalArgumentException("Divisao por zero nao e permitida.");
+        }
+        return a / b;
+    }
+
+    /**
+     * Seleciona a operação por switch, seguindo o slide 46.
      *
-     * @param a primeiro número inteiro
-     * @param b segundo número inteiro
-     * @param op operador: +, -, * ou /
-     * @return resultado inteiro, ou zero quando a operação for inválida
+     * @param a primeiro operando
+     * @param b segundo operando
+     * @param operador símbolo da operação: +, -, * ou /
+     * @return resultado da operação escolhida
+     * @throws IllegalArgumentException se o operador for inválido ou o divisor for zero
+     */
+    public int calcular(int a, int b, String operador) {
+        if (operador == null) {
+            throw new IllegalArgumentException("Operacao invalida: null");
+        }
+        return switch (operador) {
+            case "+" -> somar(a, b);
+            case "-" -> subtrair(a, b);
+            case "*" -> multiplicar(a, b);
+            case "/" -> dividir(a, b);
+            default -> throw new IllegalArgumentException("Operacao invalida: " + operador);
+        };
+    }
+
+    /**
+     * Mantém o comportamento externo do método calc da versão inicial.
+     * Um erro imprime mensagem e retorna 0 sem encerrar o programa.
+     *
+     * @param a primeiro operando
+     * @param b segundo operando
+     * @param op símbolo da operação
+     * @return resultado inteiro da operação, ou zero em caso de erro
      */
     public int calc(int a, int b, String op) {
-        // Implementação condicional baseada no slide 41 do professor.
-        if ("+".equals(op)) {
-            r = a + b;
-        } else if ("-".equals(op)) {
-            r = a - b;
-        } else if ("*".equals(op)) {
-            r = a * b;
-        } else if ("/".equals(op)) {
-            if (b != 0) {
-                r = a / b;
-            } else {
+        try {
+            r = calcular(a, b, op);
+        } catch (IllegalArgumentException erro) {
+            if ("/".equals(op) && b == 0) {
                 System.out.println("Erro: divisao por zero, operacao irregular");
-                r = 0;
+            } else {
+                System.out.println("Operacao invalida");
             }
-        } else {
-            System.out.println("Operacao invalida");
             r = 0;
         }
-
         System.out.println("Resultado = " + r);
         return r;
     }

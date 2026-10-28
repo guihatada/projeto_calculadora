@@ -1,31 +1,30 @@
 package calculadora;
 
 /**
- * Testes unitários simples executados via método main.
- * Os seis casos usam as entradas do slide 42 da aula.
- * Sem dependência da biblioteca JUnit.
+ * Testes da versão refatorada: seis testes de regressão usando calc
+ * e três testes adicionais da interface calcular, incluindo try/catch.
+ * Referência aos slides 42 e 44 da aula.
  *
  * @author Seu Nome
- * @version 1.0
+ * @version 2.0
  */
 public class TesteCalculadora {
 
-    /** Quantidade de testes aprovados. */
+    /** Total de verificações aprovadas. */
     private static int aprovados = 0;
 
-    /** Quantidade de testes reprovados. */
+    /** Total de verificações reprovadas. */
     private static int reprovados = 0;
 
-    /** Impede instanciar uma classe de testes utilitários. */
+    /** Evita instanciação acidental. */
     private TesteCalculadora() { }
 
     /**
-     * Exibe entrada, resultado esperado e resultado obtido; compara os valores.
-     *
-     * @param nome descrição do teste
-     * @param entrada combinação de operandos e operador
-     * @param esperado resultado inteiro esperado
-     * @param obtido resultado inteiro recebido do programa
+     * Compara um resultado com o valor esperado.
+     * @param nome título do cenário
+     * @param entrada descrição da entrada usada
+     * @param esperado valor esperado
+     * @param obtido valor calculado
      */
     private static void verificar(String nome, String entrada, int esperado, int obtido) {
         boolean passou = esperado == obtido;
@@ -35,20 +34,47 @@ public class TesteCalculadora {
     }
 
     /**
-     * Executa seis cenários exigidos no enunciado.
-     *
-     * @param args argumentos de linha de comando não utilizados
+     * Verifica se um cálculo rejeitado lançou a exceção esperada.
+     * @param nome título do teste
+     * @param entrada descrição dos valores
+     * @param calculadora instância a testar
+     * @param a primeiro operando
+     * @param b segundo operando
+     * @param op operador
+     */
+    private static void verificarExcecao(String nome, String entrada,
+            Calculadora calculadora, int a, int b, String op) {
+        try {
+            int obtido = calculadora.calcular(a, b, op);
+            reprovados++;
+            System.out.printf("[REPROVADO] %s | Entrada: %s | Esperado: IllegalArgumentException | Obtido: %d%n",
+                    nome, entrada, obtido);
+        } catch (IllegalArgumentException erro) {
+            aprovados++;
+            System.out.printf("[APROVADO] %s | Entrada: %s | Esperado: IllegalArgumentException | Obtido: %s%n",
+                    nome, entrada, erro.getClass().getSimpleName());
+        }
+    }
+
+    /**
+     * Executa testes de regressão e de exceção.
+     * @param args parâmetros de linha de comando não utilizados
      */
     public static void main(String[] args) {
         Calculadora calc = new Calculadora();
 
-        // Cenários originais do slide 42, agora com comparação automática.
+        // Seis testes do exemplo inicial: garantem compatibilidade depois da refatoração.
         verificar("Soma", "2 + 3", 5, calc.calc(2, 3, "+"));
         verificar("Subtracao", "10 - 4", 6, calc.calc(10, 4, "-"));
         verificar("Multiplicacao", "3 * 5", 15, calc.calc(3, 5, "*"));
         verificar("Divisao", "8 / 2", 4, calc.calc(8, 2, "/"));
         verificar("Divisao por zero", "8 / 0", 0, calc.calc(8, 0, "/"));
         verificar("Operacao invalida", "5 x 5", 0, calc.calc(5, 5, "x"));
+
+        // Testes adicionais da API refatorada, com tratamento de erros (slide 44).
+        verificar("Metodo calcular", "7 + 3", 10, calc.calcular(7, 3, "+"));
+        verificarExcecao("Excecao divisao por zero", "8 / 0", calc, 8, 0, "/");
+        verificarExcecao("Excecao operador invalido", "5 x 5", calc, 5, 5, "x");
 
         System.out.printf("RESUMO: %d APROVADOS | %d REPROVADOS%n", aprovados, reprovados);
         if (reprovados > 0) System.exit(1);

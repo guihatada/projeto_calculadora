@@ -14,7 +14,7 @@
 - **Disciplina:** UX/UI e Testes de Software
 - **Professor:** NOME DO PROFESSOR (preencher)
 - **Semestre:** 2026.2
-- **Branch desta versão:** `main`
+- **Branch desta versão:** `Refatoracao`
 
 ---
 
@@ -149,9 +149,13 @@ No Windows, também é possível usar o arquivo `executar.bat`.
 | Divisão por zero (`calc`) | `8 / 0` | 0 e mensagem de erro | 0 e mensagem de erro | Aprovado |
 | Operador inválido (`calc`) | `5 x 5` | 0 e mensagem de erro | 0 e mensagem de erro | Aprovado |
 
-![Testes iniciais](images/testes/iniciais.png)
+| Versão refatorada (`calcular`) | `7 + 3` | 10 | 10 | Aprovado |
+| Exceção na divisão (`calcular`) | `8 / 0` | `IllegalArgumentException` | `IllegalArgumentException` | Aprovado |
+| Exceção de operador (`calcular`) | `5 x 5` | `IllegalArgumentException` | `IllegalArgumentException` | Aprovado |
 
-![JavaDoc inicial](images/javadoc/documentacao.png)
+![Testes após a refatoração](images/testes/refatoracao.png)
+
+![JavaDoc da classe refatorada](images/javadoc/documentacao.png)
 
 *As imagens de testes apresentam a saída real da execução do Java, formatada para leitura. A imagem de JavaDoc é uma captura da página HTML gerada.*
 
@@ -159,8 +163,12 @@ No Windows, também é possível usar o arquivo `executar.bat`.
 
 ## 11. Refatoração
 
-A versão inicial contém a estrutura `if/else` do slide 41 e seis testes do slide 42.
-Para consultar o código reorganizado, abra a branch [`Refatoracao`](../../tree/Refatoracao).
+A versão refatorada usa os métodos `somar`, `subtrair`, `multiplicar`, `dividir` e
+`calcular`, com seleção por `switch`. O método `calcular` lança uma
+`IllegalArgumentException` para divisão por zero ou operação inválida, como no
+slide 46. O método `calc` foi mantido para compatibilidade com o código do slide 41;
+ele captura os erros, imprime mensagens e retorna zero, preservando o
+comportamento da versão inicial. O programa de testes usa `try/catch`, conforme slide 44.
 
 
 **Branches do repositório:** `main` (implementação inicial) e `Refatoracao` (código refatorado com testes). Os resultados da execução são conferidos antes e após a reorganização.
