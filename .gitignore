@@ -1,0 +1,10 @@
+# Arquivos compilados e configuracoes pessoais
+bin/
+*.class
+.classpath
+.project
+.settings/
+.idea/
+.vscode/
+*.iml
+.DS_Store
