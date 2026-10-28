@@ -151,6 +151,10 @@ No Windows, também é possível usar o arquivo `executar.bat`.
 
 ![Testes iniciais](images/testes/iniciais.png)
 
+**Após a refatoração (evidência da branch `Refatoracao`):**
+
+![Testes da branch Refatoracao](images/refatoracao/comparacao.png)
+
 ![JavaDoc inicial](images/javadoc/documentacao.png)
 
 *As imagens de testes apresentam a saída real da execução do Java, formatada para leitura. A imagem de JavaDoc é uma captura da página HTML gerada.*
