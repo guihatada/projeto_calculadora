@@ -4,7 +4,7 @@ package calculadora;
  * Implementação inicial da calculadora FinançApp, conforme slide 41 da aula.
  * A versão inicial utiliza if/else e retorna zero em operações inválidas.
  *
- * @author Seu Nome
+ * @author Guilherme Hatada Yonezawa
  * @version 1.0
  */
 public class Calculadora {

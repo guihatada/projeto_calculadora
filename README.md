@@ -8,11 +8,11 @@
 
 - **Projeto:** Projeto Calculadora (`projeto_calculadora`)
 - **Contexto:** FinançApp
-- **Aluno:** SEU NOME (preencher)
-- **RA:** SEU RA (preencher)
+- **Aluno:** Guilherme Hatada Yonezawa
+- **RA:** 250846
 - **Curso:** Análise e Desenvolvimento de Sistemas
 - **Disciplina:** UX/UI e Testes de Software
-- **Professor:** NOME DO PROFESSOR (preencher)
+- **Professor:** Daniel Ohata
 - **Semestre:** 2026.2
 - **Branch desta versão:** `main`
 
