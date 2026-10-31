@@ -5,7 +5,7 @@ package calculadora;
  * e três testes adicionais da interface calcular, incluindo try/catch.
  * Referência aos slides 42 e 44 da aula.
  *
- * @author Seu Nome
+ * @author Guilherme Hatada Yonezawa
  * @version 2.0
  */
 public class TesteCalculadora {

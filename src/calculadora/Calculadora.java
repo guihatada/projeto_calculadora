@@ -3,9 +3,9 @@ package calculadora;
 /**
  * Operações matemáticas inteiras para o projeto FinançApp.
  * Versão refatorada a partir do exemplo dos slides 41 e 46.
- * Contém métodos independentes e delega a seleção ao método calcular.
+ * Contém métodos independentes e delega a seleção ao método calcular. 
  *
- * @author Seu Nome
+ * @author Guilherme Hatada Yonezawa
  * @version 2.0
  */
 public class Calculadora {

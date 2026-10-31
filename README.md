@@ -8,11 +8,11 @@
 
 - **Projeto:** Projeto Calculadora (`projeto_calculadora`)
 - **Contexto:** FinançApp
-- **Aluno:** SEU NOME (preencher)
-- **RA:** SEU RA (preencher)
+- **Aluno:** GUILHERME HATADA YONEZAWA
+- **RA:** 250846
 - **Curso:** Análise e Desenvolvimento de Sistemas
 - **Disciplina:** UX/UI e Testes de Software
-- **Professor:** NOME DO PROFESSOR (preencher)
+- **Professor:** DANIEL OHATA
 - **Semestre:** 2026.2
 - **Branch desta versão:** `Refatoracao`
 
@@ -153,7 +153,7 @@ No Windows, também é possível usar o arquivo `executar.bat`.
 | Exceção na divisão (`calcular`) | `8 / 0` | `IllegalArgumentException` | `IllegalArgumentException` | Aprovado |
 | Exceção de operador (`calcular`) | `5 x 5` | `IllegalArgumentException` | `IllegalArgumentException` | Aprovado |
 
-![Testes após a refatoração](images/testes/refatoracao.png)
+![Resultado dos testes após a refatoração](images/testes/refatoracao.png)
 
 ![JavaDoc da classe refatorada](images/javadoc/documentacao.png)
 
@@ -189,7 +189,7 @@ O comando também pode ser executado usando `gerar_javadoc.bat` no Windows.
 
 ## 13. Repositório GitHub
 
-**URL do seu repositório:** `https://github.com/SEU_USUARIO/projeto_calculadora` (SUBSTITUIR após publicar).
+**URL do repositório:** `https://github.com/guihatada/projeto_calculadora.git` 
 
 O link https://github.com/dr-ohata/calculadora_refatoracao foi usado **apenas como modelo do README fornecido pelo professor**; não é o repositório de entrega do aluno.
 
@@ -202,4 +202,3 @@ O link https://github.com/dr-ohata/calculadora_refatoracao foi usado **apenas co
 - Slide 44: testes após refatoração e uso de `try/catch`.
 - Slide 46: métodos extraídos, `switch` e JavaDoc.
 
-**Antes de entregar:** preencher aluno, RA, professor e o link do próprio GitHub; publicar ambas as branches e conferir se as imagens aparecem no README online.
