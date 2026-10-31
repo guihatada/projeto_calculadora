@@ -185,7 +185,7 @@ O comando também pode ser executado usando `gerar_javadoc.bat` no Windows.
 
 ## 13. Repositório GitHub
 
-**URL do seu repositório:** `https://github.com/SEU_USUARIO/projeto_calculadora` (SUBSTITUIR após publicar).
+**URL do seu repositório:** `https://github.com/guihatada/projeto_calculadora`
 
 O link https://github.com/dr-ohata/calculadora_refatoracao foi usado **apenas como modelo do README fornecido pelo professor**; não é o repositório de entrega do aluno.
 
